@@ -46,7 +46,7 @@ void on_scream_server_recv(char *pusrdata, unsigned short len) {
     // copy to align
     memcpy(samples, pusrdata + sizeof(struct scream_header), sizeof(samples));
     if (remaining_sample) {
-        if (jbuf_put(remaining_sample) == 0) {
+        if (jbuf_put(remaining_sample_value) == 0) {
             remaining_sample = false;
         } else {
             TRACE(("Overflow: remaining sample\n"));
